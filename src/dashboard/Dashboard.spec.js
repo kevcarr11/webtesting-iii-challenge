@@ -10,3 +10,13 @@ test("<Dashboard /> snapshot", () => {
 
   expect(wrapper.asFragment()).toMatchSnapshot()
 })
+
+test('Shows the controls and display', () => {
+  const wrapper = rtl.render(<Dashboard />)
+
+  const controls = wrapper.getByText(/close gate/i)
+  const display = wrapper.getByText(/open/i)
+
+  expect(controls).toBeDefined()
+  expect(display).toBeDefined()
+})
